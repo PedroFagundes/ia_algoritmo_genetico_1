@@ -6,22 +6,32 @@
 	<title>Algoritmo Genético</title>
 
 	<link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
+	<div class="container">
 
-	<table>
-		<tr>
-			<th>Indivíduo</th><th>Outro</th>
-		</tr>
-		{% for individuo in populacao %}
-			<tr>
-				<td>{{ individuo }}</td><td>-</td>
-			</tr>
-		{% endfor %}
-	</table>
-	
+		<div class="panel panel-primary main-panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Resultado</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-bordered table-hover">
+					<tr>
+						<th>Indivíduo</th><th>Precisão</th>
+					</tr>
+					{% for individuo in populacao %}
+						<tr>
+							<td>{{ individuo }}</td><td>0</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
 
+	<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

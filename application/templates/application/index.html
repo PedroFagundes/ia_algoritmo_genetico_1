@@ -6,17 +6,58 @@
 	<title>Algoritmo Genético</title>
 
 	<link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
+	<div class="container">
 
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Gerar</button>
-	</form>
-	
+		<div class="panel panel-primary main-panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Algoritmo Genético</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal" method="POST">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Palavra 1</label>
+						<div class="col-sm-10">
+							{{ form.palavra_1 }}
+							{{ form.errors.palavra_1 }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">Palavra 2</label>
+						<div class="col-sm-10">
+							{{ form.palavra_2 }}
+							{{ form.errors.palavra_2 }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">Palavra 3</label>
+						<div class="col-sm-10">
+							{{ form.palavra_3 }}
+							{{ form.errors.palavra_3 }}
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">População</label>
+						<div class="col-sm-10">
+							{{ form.populacao }}
+							{{ form.errors.populacao }}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-primary">Gerar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
+	<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
