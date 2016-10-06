@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>Algoritmo Genético</title>
+
+	<link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+
+	<table>
+		<tr>
+			<th>Indivíduo</th><th>Outro</th>
+		</tr>
+		{% for individuo in populacao %}
+			<tr>
+				<td>{{ individuo }}</td><td>-</td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+
+	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

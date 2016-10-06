@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>Algoritmo Genético</title>
+
+	<link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Gerar</button>
+	</form>
+	
+
+	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
