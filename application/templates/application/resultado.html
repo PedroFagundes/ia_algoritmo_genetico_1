@@ -19,11 +19,11 @@
 			<div class="panel-body">
 				<table class="table table-bordered table-hover">
 					<tr>
-						<th>Indivíduo</th><th>Precisão</th>
+						<th>Indivíduo</th><th>Fa's</th>
 					</tr>
-					{% for individuo in populacao %}
+					{% for individuo in populacao|dictsort:"fa" %} 
 						<tr>
-							<td>{{ individuo }}</td><td>0</td>
+							<td>{{ individuo.individuo }}</td><td>{{ individuo.fa }}</td>
 						</tr>
 					{% endfor %}
 				</table>
