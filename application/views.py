@@ -30,7 +30,6 @@ def gera_fa(populacao, letras_unicas, palavras):
 	fa_palavra = ''
 	fa = ''
 	vetor_individuo_fa = []
-	vetor_fa = []
 	populacao_com_fa = []
 	for individuo in populacao:
 		for palavra in palavras:
@@ -41,12 +40,10 @@ def gera_fa(populacao, letras_unicas, palavras):
 			fa_palavra = ''
 		fa = abs(int(vetor_individuo_fa[0]) + int(vetor_individuo_fa[1]) - int(vetor_individuo_fa[2]))
 		vetor_individuo_fa = []
-		vetor_fa.append(str(fa))
 		individuo_gerado = {}
 		individuo_gerado['individuo'] = individuo
 		individuo_gerado['fa'] = fa
 		populacao_com_fa.append(individuo_gerado)
-	#import pdb; pdb.set_trace()
 	return populacao_com_fa
 
 def index(request):
@@ -64,8 +61,6 @@ def index(request):
 			populacao = gera_populacao(int(form.cleaned_data['populacao']))
 
 			populacao = gera_fa(populacao, letras_unicas, palavras)
-
-			#import pdb; pdb.set_trace()
 
 			context = {'populacao' : populacao}
 
