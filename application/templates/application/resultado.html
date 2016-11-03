@@ -21,7 +21,7 @@
 					<tr>
 						<th>Indivíduo</th><th>Fa's</th>
 					</tr>
-					{% for individuo in populacao|dictsort:"fa" %} 
+					{% for individuo in populacao_com_fa %} 
 						<tr>
 							<td>{{ individuo.individuo }}</td><td>{{ individuo.fa }}</td>
 						</tr>
@@ -30,7 +30,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
