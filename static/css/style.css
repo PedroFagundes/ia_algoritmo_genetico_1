@@ -1,3 +1,23 @@
 .main-panel {
-	margin-top: 80px;
+	margin-top: 8px;
+}
+body{
+	background: #730d3d;
+}
+.button{
+	padding-top: 70px; 
+}
+#button1id{
+	width: 100px;
+	margin-left: 100px;
+}
+#button2id{
+	width: 100px;
+	margin-left: 10px;
+}
+.panel-title{
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 50px;
+	font-family: courier; 
 }

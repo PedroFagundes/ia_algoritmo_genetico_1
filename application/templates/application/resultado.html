@@ -10,20 +10,26 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container-fluid">
 
 		<div class="panel panel-primary main-panel">
 			<div class="panel-heading">
-				<h3 class="panel-title">Resultado</h3>
+				<h3 class="panel-title">Método de Seleção Roleta</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-bordered table-hover">
 					<tr>
-						<th>Indivíduo</th><th>Fa's</th>
+						<th>Indivíduo</th>
+						<th>Fa's</th>
+						<th>Fa_Roleta</th>
+						<th>Fa_Roleta Acumulado</th>
 					</tr>
-					{% for individuo in populacao_com_fa %} 
+					{% for individuo in individuo_selec_roleta %} 
 						<tr>
-							<td>{{ individuo.individuo }}</td><td>{{ individuo.fa }}</td>
+							<td>{{ individuo.0 }}</td>
+							<td>{{ individuo.1 }}</td>
+							<td>{{ individuo.2 }}</td>
+							<td>{{ individuo.3 }}</td>
 						</tr>
 					{% endfor %}
 				</table>

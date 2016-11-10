@@ -10,53 +10,206 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container-fluid">
 
 		<div class="panel panel-primary main-panel">
 			<div class="panel-heading">
 				<h3 class="panel-title">Algoritmo Genético</h3>
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal" method="POST">
+				<form class="form-horizontal " method="POST">
 					{% csrf_token %}
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Palavra 1</label>
-						<div class="col-sm-10">
-							{{ form.palavra_1 }}
+					<fieldset>
+
+						<div class="row">
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="palavra_1">1ª Palavra:</label>  
+							<div class="col-md-8">
+							<input id="palavra_1" name="palavra_1" type="text" placeholder="" class="form-control input-md">
 							{{ form.errors.palavra_1 }}
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 control-label">Palavra 2</label>
-						<div class="col-sm-10">
-							{{ form.palavra_2 }}
+							</div>
+							</div>
+
+
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="palavra_2">2ª Palavra:</label>  
+							<div class="col-md-8">
+							<input id="palavra_2" name="palavra_2" type="text" placeholder="" class="form-control input-md">
 							{{ form.errors.palavra_2 }}
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 control-label">Palavra 3</label>
-						<div class="col-sm-10">
-							{{ form.palavra_3 }}
+							</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="palavra_3">3ª Palavra:</label>  
+							<div class="col-md-8">
+							<input id="palavra_3" name="palavra_3" type="text" placeholder="" class="form-control input-md">
 							{{ form.errors.palavra_3 }}
+							</div>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 control-label">População</label>
-						<div class="col-sm-10">
-							{{ form.populacao }}
+
+						<div class="row">
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="populacao">Populaçao:</label>  
+							<div class="col-md-8">
+							<input id="populacao" name="populacao" type="text" placeholder="" class="form-control input-md">
 							{{ form.errors.populacao }}
+							</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="geracao">Geração:</label>  
+							<div class="col-md-8">
+							<input id="geracao" name="geracao" type="text" placeholder="" class="form-control input-md">
+							</div>
+							</div>
+
+							<!-- Select Basic -->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="metodo_selecao">Met. Seleção:</label>
+							<div class="col-md-8">
+							<select id="metodo_selecao" name="metodo_selecao" class="form-control">
+							<option value="0" selected disabled>Selecionar ...</option>
+							<option value="truncamento">Truncamento</option>
+							<option value="torneio_simples">Torneio Simples</option>
+							<option value="roleta">Roleta</option>
+							<option value="torneio_estocastico">Torneio Estocástico</option>
+							</select>
+							</div>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Gerar</button>
+
+						<div class="row">
+							<!-- Select Basic -->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="tour">Tour:</label>
+							<div class="col-md-8">
+							<select id="tour" name="tour" class="form-control">
+							<option value="0" selected disabled>Selecionar ...</option>
+							<option value="2">dois</option>
+							<option value="3">três</option>
+							</select>
+							</div>
+							</div>
+
+
+							<!-- Select Basic -->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="crossover">Tx. Cross:</label>
+							<div class="col-md-8">
+							<select id="crossover" name="crossover" class="form-control">
+							<option value="0" selected disabled>Selecionar ...</option>
+							<option value="2">2%</option>
+							<option value="4">4%</option>
+							<option value="6">6%</option>
+							<option value="8">8%</option>
+							<option value="10">10%</option>
+							<option value="12">12%</option>
+							<option value="14">14%</option>
+							<option value="16">16%</option>
+							<option value="18">18%</option>
+							<option value="20">20%</option>
+							<option value="22">22%</option>
+							<option value="24">24%</option>
+							<option value="26">26%</option>
+							<option value="28">28%</option>
+							<option value="30">30%</option>
+							<option value="32">32%</option>
+							<option value="34">34%</option>
+							<option value="36">36%</option>
+							<option value="38">38%</option>
+							<option value="40">40%</option>
+							<option value="42">42%</option>
+							<option value="44">44%</option>
+							<option value="46">46%</option>
+							<option value="48">48%</option>
+							<option value="50">50%</option>
+							<option value="52">52%</option>
+							<option value="54">54%</option>
+							<option value="56">56%</option>
+							<option value="58">58%</option>
+							<option value="60">60%</option>
+							<option value="62">62%</option>
+							<option value="64">64%</option>
+							<option value="66">66%</option>
+							<option value="68">68%</option>
+							<option value="70">70%</option>
+							<option value="72">72%</option>
+							<option value="74">74%</option>
+							<option value="76">76%</option>
+							<option value="78">78%</option>
+							<option value="80">80%</option>
+							<option value="82">82%</option>
+							<option value="84">84%</option>
+							<option value="86">86%</option>
+							<option value="88">88%</option>
+							<option value="90">90%</option>
+							<option value="92">92%</option>
+							<option value="94">94%</option>
+							<option value="96">96%</option>
+							<option value="98">98%</option>
+							<option value="100">100%</option>
+							</select>
+							{{ form.errors.crossover }}
+							</div>
+							</div>
+
+							<!-- Select Basic -->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="met_cross">Met. Cross:</label>
+							<div class="col-md-8">
+							<select id="met_cross" name="met_cross" class="form-control">
+							<option value="0" selected disabled>Selecionar ...</option>
+							<option value="1">Pmx</option>
+							<option value="2">Ciclico</option>
+							</select>
+							</div>
+							</div>
 						</div>
-					</div>
+
+						<div class="row">
+							<!-- Text input-->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="tx_mutacao">Tx. Mutação:</label>  
+							<div class="col-md-8">
+							<input id="tx_mutacao" name="tx_mutacao" type="text" placeholder="" class="form-control input-md">
+							</div>
+							</div>
+
+							<!-- Select Basic -->
+							<div class="form-group col-md-4">
+							<label class="col-md-4 control-label" for="met_reinsercao">Met. Reinserção:</label>
+							<div class="col-md-8">
+							<select id="met_reinsercao" name="met_reinsercao" class="form-control">
+							<option value="0" selected disabled>Selecionar ...</option>
+							<option value="truncamento">Truncamento</option>
+							<option value="torneio_simples">Torneio Simples</option>
+							<option value="roleta">Roleta</option>
+							<option value="torneio_estocastico">Torneio Estocástico</option>
+							</select>
+							</div>
+							</div>
+						</div>
+
+						<!-- Button (Double) -->
+						<div class="form-group button">
+						<label class="col-md-4 control-label" for="button1id"></label>
+						<div class="col-md-8">
+						<button id="button1id" name="button1id" class="btn btn-success">Gerar</button>
+						<button id="button2id" name="button2id" class="btn btn-danger">Cancelar</button>
+						</div>
+						</div>
+
+					</fieldset>
 				</form>
 			</div>
 		</div>
 	</div>
-
 	<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
