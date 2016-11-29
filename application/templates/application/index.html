@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<div class="container-fluid">
+	<div class="container">
 
 		<div class="panel panel-primary main-panel">
 			<div class="panel-heading">
@@ -80,6 +80,7 @@
 							<option value="roleta">Roleta</option>
 							<option value="torneio_estocastico">Torneio Estocástico</option>
 							</select>
+							{{ form.errors.metodo_selecao }}
 							</div>
 							</div>
 						</div>
@@ -94,6 +95,7 @@
 							<option value="2">dois</option>
 							<option value="3">três</option>
 							</select>
+							{{ form.errors.tour }}
 							</div>
 							</div>
 
@@ -102,8 +104,8 @@
 							<div class="form-group col-md-4">
 							<label class="col-md-4 control-label" for="crossover">Tx. Cross:</label>
 							<div class="col-md-8">
-							<input type="range" name="crossover" min="2" max="80" step="2" value="2" oninput="updateTxConversao(this.value)">
-							<span id="txConversao">2 %</span>
+							<input type="range" name="crossover" min="2" max="80" step="2" value="2" oninput="updateTxCrossover(this.value)">
+							<span id="txCrossover">2 %</span>
 							{{ form.errors.crossover }}
 							</div>
 							</div>
@@ -114,9 +116,10 @@
 							<div class="col-md-8">
 							<select id="met_cross" name="met_cross" class="form-control">
 							<option value="0" selected disabled>Selecionar ...</option>
-							<option value="1">Pmx</option>
-							<option value="2">Ciclico</option>
+							<option value="pmx">Pmx</option>
+							<option value="ciclico">Ciclico</option>
 							</select>
+							{{ form.errors.met_cross }}
 							</div>
 							</div>
 						</div>
@@ -126,7 +129,9 @@
 							<div class="form-group col-md-4">
 							<label class="col-md-4 control-label" for="tx_mutacao">Tx. Mutação:</label>  
 							<div class="col-md-8">
-							<input id="tx_mutacao" name="tx_mutacao" type="text" placeholder="" class="form-control input-md">
+							<input type="range" name="tx_mutacao" min="1" max="10" step="1" value="1" oninput="updateTxMutacao(this.value)">
+							<span id="txMutacao">1 %</span>
+							{{ form.errors.tx_mutacao }}
 							</div>
 							</div>
 
@@ -136,11 +141,11 @@
 							<div class="col-md-8">
 							<select id="met_reinsercao" name="met_reinsercao" class="form-control">
 							<option value="0" selected disabled>Selecionar ...</option>
-							<option value="truncamento">Truncamento</option>
-							<option value="torneio_simples">Torneio Simples</option>
+							<option value="uniforme">Uniforme</option>
 							<option value="roleta">Roleta</option>
-							<option value="torneio_estocastico">Torneio Estocástico</option>
+							<option value="roleta_elite">Roleta com Elite</option>
 							</select>
+							{{ form.errors.met_reinsercao }}
 							</div>
 							</div>
 						</div>
@@ -162,13 +167,16 @@
 	<script src="{% static 'jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'vendors/bootstrap/js/bootstrap.min.js' %}"></script>
 	<script type="text/javascript">
-		function updateTxConversao (value) {
-			// alert('foo');
-			// var txConversao = document.getElementById('txConversao');
-			// var crossover = document.getElementsByName('crossover')[0];
-			// console.log(txConversao);
-			txConversao.textContent = value + ' %';
+		
+		function updateTxCrossover (value) {
+			txCrossover.textContent = value + ' %';
+			
 		};
+		function updateTxMutacao (value){
+			txMutacao.textContent = value + ' %';
+
+		};
+
 	</script>
 </body>
 </html>
