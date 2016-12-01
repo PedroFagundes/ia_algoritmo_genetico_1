@@ -135,8 +135,7 @@ def taxa_mutacao(percent_mutacao, populacao):
 
 def truncamento(individuo_fa_roleta, crossover):
 	individuos_selecionados_truncamento = []
-	vetor_aux_truncamento = []
-	individuo = 0
+	
 	vetor_aux_truncamento = sorted(individuo_fa_roleta, key=itemgetter(1))
 
 	if crossover < 2:
@@ -148,17 +147,14 @@ def truncamento(individuo_fa_roleta, crossover):
 	else:
 		pass
 
-	while (crossover > 0):
+	for individuo in vetor_aux_truncamento:
 		
-		if vetor_aux_truncamento[individuo] not in individuos_selecionados_truncamento:
-			individuos_selecionados_truncamento.append(vetor_aux_truncamento[individuo])
-			
-			crossover -= 1
-			individuo += 1
+		if crossover > len(individuos_selecionados_truncamento):
+			individuos_selecionados_truncamento.append(individuo)
 		
 		else:
-			individuo += 1
-
+			break
+		
 	return individuos_selecionados_truncamento
 
 
@@ -183,12 +179,12 @@ def torneio_simples(individuo_fa_roleta, crossover, tour):
 		vetor_aux_ts = sample(individuo_fa_roleta, tour)
 		vetor_aux_ts = sorted(vetor_aux_ts, key=itemgetter(1))
 		
-		if vetor_aux_ts[0] not in individuo_selecionado_ts:
-			individuo_selecionado_ts.append(vetor_aux_ts[0])
-			crossover -= 1
+		#if vetor_aux_ts[0] not in individuo_selecionado_ts:
+		individuo_selecionado_ts.append(vetor_aux_ts[0])
+		crossover -= 1
 		
-		else:
-			pass
+		#else:
+			#pass
 		
 		vetor_aux_ts = []
 	
@@ -222,12 +218,12 @@ def roleta(individuo_fa_roleta, crossover):
 		
 			if num_casa_individuo <= fa_roleta[3]:
 				
-				if fa_roleta not in individuo_selec_roleta:
-					individuo_selec_roleta.append(fa_roleta)
-					crossover -= 1
+				#if fa_roleta not in individuo_selec_roleta:
+				individuo_selec_roleta.append(fa_roleta)
+				crossover -= 1
 		
-				else:
-					pass
+				#else:
+					#pass
 				
 				break
 			else:
@@ -273,12 +269,12 @@ def torneio_estocastico(individuo_fa_roleta, crossover, tour):
 		
 		vetor_aux_es = sorted(vetor_aux_es, key=itemgetter(1))
 		
-		if vetor_aux_es[0] not in individuo_selecionado_te:
-			individuo_selecionado_te.append(vetor_aux_es[0])
-			crossover -= 1
+		#if vetor_aux_es[0] not in individuo_selecionado_te:
+		individuo_selecionado_te.append(vetor_aux_es[0])
+		crossover -= 1
 
-		else:
-			pass
+		#else:
+		#	pass
 		
 		vetor_aux_es = []
 	
@@ -530,12 +526,12 @@ def roleta_elite(individuo_fa_roleta, tamanho_populacao):
 		
 			if num_casa_individuo <= fa_roleta[3]:
 				
-				if fa_roleta not in individuo_selec_roleta:
-					individuo_selec_roleta.append(fa_roleta)
-					tamanho_populacao -= 1
+				#if fa_roleta not in individuo_selec_roleta:
+				individuo_selec_roleta.append(fa_roleta)
+				tamanho_populacao -= 1
 		
-				else:
-					pass
+				#else:
+				#	pass
 				
 				break
 			else:
@@ -546,11 +542,14 @@ def roleta_elite(individuo_fa_roleta, tamanho_populacao):
 '''___________________________________________________________________
    ________________ Pegar o Melhor da Geraçao ___________________'''
 
-def melhor_da_geracao(individuo_fa_roleta):
-
+def melhor_da_geracao(individuo_fa_roleta, geracao):
+	
 	vetor_aux_truncamento = sorted(individuo_fa_roleta, key=itemgetter(1))
+	
+	melhor_geracao = vetor_aux_truncamento[0]
+	melhor_geracao = (geracao + 1), melhor_geracao[0], melhor_geracao[1], melhor_geracao[2], melhor_geracao[3]
 
-	return vetor_aux_truncamento[0]
+	return melhor_geracao
 
 	
 
@@ -628,10 +627,10 @@ def index(request):
 					individuo_fa = gera_lista_tuplas(populacao_com_fa)
 					individuo_fa_roleta = definindo_roleta(individuo_fa)
 
-					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta)
+					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta, geracao)
 					geracao_filhos.append(melhor_individuo_geracao)
 
-					if melhor_individuo_geracao[1] == 0:
+					if melhor_individuo_geracao[2] == 0:
 						
 						break
 						'''___________________ Verifica o metodo de reinserçao _________________'''
@@ -675,10 +674,10 @@ def index(request):
 					individuo_fa = gera_lista_tuplas(populacao_com_fa)
 					individuo_fa_roleta = definindo_roleta(individuo_fa)
 
-					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta)
+					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta, geracao)
 					geracao_filhos.append(melhor_individuo_geracao)
 
-					if melhor_individuo_geracao[1] == 0:
+					if melhor_individuo_geracao[2] == 0:
 						
 						break
 						'''___________________ Verifica o metodo de reinserçao _________________'''
@@ -725,10 +724,10 @@ def index(request):
 					individuo_fa = gera_lista_tuplas(populacao_com_fa)
 					individuo_fa_roleta = definindo_roleta(individuo_fa)
 
-					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta)
+					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta, geracao)
 					geracao_filhos.append(melhor_individuo_geracao)
 
-					if melhor_individuo_geracao[1] == 0:
+					if melhor_individuo_geracao[2] == 0:
 						
 						break
 						
@@ -780,10 +779,10 @@ def index(request):
 					individuo_fa = gera_lista_tuplas(populacao_com_fa)
 					individuo_fa_roleta = definindo_roleta(individuo_fa)
 
-					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta)
+					melhor_individuo_geracao = melhor_da_geracao(individuo_fa_roleta, geracao)
 					geracao_filhos.append(melhor_individuo_geracao)
 
-					if melhor_individuo_geracao[1] == 0:
+					if melhor_individuo_geracao[2] == 0:
 						
 						break
 						'''___________________ Verifica o metodo de reinserçao _________________'''

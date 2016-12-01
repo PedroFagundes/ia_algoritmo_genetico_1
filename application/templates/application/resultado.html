@@ -14,22 +14,24 @@
 
 		<div class="panel panel-primary main-panel">
 			<div class="panel-heading">
-				<h3 class="panel-title">Melhores da Geração</h3>
+				<h3 class="panel-title">Melhor de cada Geração</h3>
 			</div>
 			<div class="panel-body">
 				<table class="table table-bordered table-hover">
 					<tr>
-						<th>Indivíduo</th>
-						<th>Fa's</th>
-						<th>Fa_Roleta</th>
-						<th>Fa_Roleta Acumulado</th>
+						<th>GERACAO</th>
+						<th>INDIVIDUO</th>
+						<th>FA'S</th>
+						<th>FA ROLETA</th>
+						<th>FA ROLETA ACOMULADO</th>
 					</tr>
 					{% for individuo in geracao_filhos %} 
 						<tr>
-							<td>{{ individuo.0 }}</td>
+							<td style="color: blue;">{{ individuo.0 }}ª Geraçao</td>
 							<td>{{ individuo.1 }}</td>
-							<td>{{ individuo.2 }}</td>
+							<td style="color: red; font-weight: bold;">{{ individuo.2 }}</td>
 							<td>{{ individuo.3 }}</td>
+							<td>{{ individuo.4 }}</td>
 						</tr>
 					{% endfor %}
 				</table>
